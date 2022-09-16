@@ -1,12 +1,13 @@
 const cards = document.querySelectorAll('.cards')
+const resetBtn = document.getElementById('reset-btn')
 let card1 = null
 let card2 = null
 let flipCard1 = false
 let flipCard2 = true //it will be changed to false when we flip card1
 let is_timer_on = false // prevent flipping more than 2 cards
 let winnerCounter = 0 //it should reach 3 to score 6 point
+let score = 0
 let displayScore = document.getElementById('display-score')
-displayScore.textContent = 0
 
 cards.forEach((card) => {
     card.addEventListener('click', () => {
@@ -50,6 +51,7 @@ cards.forEach((card) => {
             console.log("We got a match")
             card1.container.classList.add('matched')
             card2.container.classList.add('matched')
+            winnerCounter++
         }else {
 
             
@@ -73,6 +75,19 @@ cards.forEach((card) => {
         flipCard2 = true
         // console.log("card1", card1)
         // console.log("card2", card2)
+        if(winnerCounter === 3) {
+            score++
+            displayScore.textContent = score
+        }
         
+    })
+})
+
+resetBtn.addEventListener('click', () => {
+    winnerCounter = 0
+    cards.forEach((card) => {
+        card.classList.remove('matched')
+        card.lastChild.previousSibling.classList.remove('view-hidden')
+        card.lastChild.previousSibling.classList.remove('flip')
     })
 })
