@@ -73,3 +73,14 @@ img {
     margin-top: 5px;
     z-index: 1;
 }
+
+.score-wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.score {
+    text-align: center;
+    font-size: 42px;
+}

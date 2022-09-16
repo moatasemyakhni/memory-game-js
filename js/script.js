@@ -4,16 +4,18 @@ let card2 = null
 let flipCard1 = false
 let flipCard2 = true //it will be changed to false when we flip card1
 let is_timer_on = false // prevent flipping more than 2 cards
+let winnerCounter = 0 //it should reach 3 to score 6 point
+let displayScore = document.getElementById('display-score')
+displayScore.textContent = 0
+
 cards.forEach((card) => {
     card.addEventListener('click', () => {
         if(is_timer_on) return
         if(card.classList.contains('matched')) return
-        
+
         const frontCard = card.firstChild.nextSibling
         const backCard = card.lastChild.previousSibling
         backCard.classList.toggle('flip')
-        frontCard.classList.toggle('view-hidden')
-        // frontCard.classList.toggle('flip')
         backCard.classList.toggle('view-hidden')
         
         if(!flipCard1) {
@@ -57,8 +59,8 @@ cards.forEach((card) => {
                 card2.back.classList.remove('flip') 
                 card1.back.classList.remove('view-hidden')
                 card2.back.classList.remove('view-hidden')
-                // card1.front.classList.add('view-hidden')
-                // card2.front.classList.add('view-hidden')
+                card1.front.classList.add('view-hidden')
+                card2.front.classList.add('view-hidden')
                 is_timer_on = false
             }, 1000)
         }
