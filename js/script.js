@@ -9,6 +9,31 @@ let winnerCounter = 0 //it should reach 3 to score 6 point
 let score = 0
 let displayScore = document.getElementById('display-score')
 
+const c1 = document.getElementById('card1')
+const c2 = document.getElementById('card2')
+const c3 = document.getElementById('card3')
+const c4 = document.getElementById('card4')
+const c5 = document.getElementById('card5')
+const c6 = document.getElementById('card6')
+const shuffleOrder = () => {
+    const arr = [1, 2, 3, 4, 5, 6]
+    // console.log("before", arr)
+    for(let i=arr.length-1; i>0; i--) {
+        let j = Math.floor(Math.random() * (i + 1))
+        temp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = temp
+    }
+    // console.log("after", arr)
+    c1.style.gridArea = "c" + arr[0]
+    c2.style.gridArea = "c" + arr[1]
+    c3.style.gridArea = "c" + arr[2]
+    c4.style.gridArea = "c" + arr[3]
+    c5.style.gridArea = "c" + arr[4]
+    c6.style.gridArea = "c" + arr[5]
+}
+shuffleOrder()
+
 cards.forEach((card) => {
     card.addEventListener('click', () => {
         if(is_timer_on) return
@@ -90,4 +115,6 @@ resetBtn.addEventListener('click', () => {
         card.lastChild.previousSibling.classList.remove('view-hidden')
         card.lastChild.previousSibling.classList.remove('flip')
     })
+    shuffleOrder()
 })
+

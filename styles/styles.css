@@ -75,12 +75,36 @@ img {
     justify-content: center;
     margin-top: 30px;
     gap: 15px;
+    grid-template-areas: 
+    'c1 c2 c3'
+    'c4 c5 c6';
 }
 
 .cards {
     position: relative;
     transition: all ease-in 500ms;
 }
+
+/* They will be used to shuffle in js */
+#card1 {
+    grid-area: c1;
+}
+#card2 {
+    grid-area: c2;
+}
+#card3 {
+    grid-area: c3;
+}
+#card4 {
+    grid-area: c4;
+}
+#card5 {
+    grid-area: c5;
+}
+#card6 {
+    grid-area: c6;
+}
+/*  */
 
 .front-card {
     position: absolute;
