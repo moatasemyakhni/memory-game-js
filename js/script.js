@@ -3,8 +3,10 @@ let card1 = null
 let card2 = null
 let flipCard1 = false
 let flipCard2 = true //it will be changed to false when we flip card1
+let is_timer_on = false // prevent flipping more than 2 cards
 cards.forEach((card) => {
     card.addEventListener('click', () => {
+        if(is_timer_on) return
         if(card.classList.contains('matched')) {
             return
         }
@@ -57,20 +59,25 @@ cards.forEach((card) => {
             // card2.back.classList.add('view-none')
 
         }else {
-            card1.back.classList.remove('view-hidden')
-            card2.back.classList.remove('view-hidden')
 
-            card1.back.classList.remove('flip')
+            
+            is_timer_on = true
+            setTimeout(() => {  
+                card1.back.classList.remove('flip')
             card2.back.classList.remove('flip')
-
-            card1.front.classList.add('view-hidden')
-            card2.front.classList.add('view-hidden')
+            
 
             card1.front.classList.remove('matched')
             card2.front.classList.remove('matched')
 
             card1.back.classList.remove('matched')
-            card2.back.classList.remove('matched')
+            card2.back.classList.remove('matched') 
+            card1.back.classList.remove('view-hidden')
+            card2.back.classList.remove('view-hidden')
+            card1.front.classList.add('view-hidden')
+            card2.front.classList.add('view-hidden')
+            is_timer_on = false
+            }, 1000)
         }
         
         console.log("card1", card1.container)

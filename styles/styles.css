@@ -28,7 +28,7 @@ img {
 }
 
 .matched {
-    cursor:default;
+    cursor: default !important;
 }
 
 /*  */
