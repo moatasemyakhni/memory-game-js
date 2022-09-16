@@ -5,7 +5,7 @@ let card2 = null
 let flipCard1 = false
 let flipCard2 = true //it will be changed to false when we flip card1
 let is_timer_on = false // prevent flipping more than 2 cards
-let winnerCounter = 0 //it should reach 3 to score 6 point
+let winnerCounter = 0 //it should reach 3 to score 1 point
 let score = 0
 let displayScore = document.getElementById('display-score')
 
