@@ -18,6 +18,10 @@ img {
     opacity: 0;
 }
 
+.view-none {
+    display: none;
+}
+
 /*  */
 
 .cards {
@@ -41,6 +45,8 @@ img {
 
 .cards {
     position: relative;
+    transform: scale(1);
+    transition: all ease-in 500ms;
 }
 
 .front-card {
