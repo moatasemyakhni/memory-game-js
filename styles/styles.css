@@ -13,6 +13,11 @@ img {
     transition: all ease-in 300ms;
 }
 
+.front-card img {
+    width: 70px;
+    height: 100px;
+}
+
 .view-hidden {
     visibility: hidden;
     opacity: 0;
@@ -22,10 +27,15 @@ img {
     display: none;
 }
 
+.matched {
+    cursor:default;
+}
+
 /*  */
 
 .cards {
     cursor: pointer;
+    height: 200px;
 }
 
 .flip {
@@ -45,7 +55,6 @@ img {
 
 .cards {
     position: relative;
-    transform: scale(1);
     transition: all ease-in 500ms;
 }
 
@@ -54,4 +63,13 @@ img {
     top: 0;
     left: 0;
     margin-top: 5px;
+    z-index: -1;
+}
+
+.back-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 5px;
+    z-index: 1;
 }
