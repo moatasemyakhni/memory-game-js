@@ -7,9 +7,8 @@ let is_timer_on = false // prevent flipping more than 2 cards
 cards.forEach((card) => {
     card.addEventListener('click', () => {
         if(is_timer_on) return
-        if(card.classList.contains('matched')) {
-            return
-        }
+        if(card.classList.contains('matched')) return
+        
         const frontCard = card.firstChild.nextSibling
         const backCard = card.lastChild.previousSibling
         backCard.classList.toggle('flip')
@@ -49,34 +48,18 @@ cards.forEach((card) => {
             console.log("We got a match")
             card1.container.classList.add('matched')
             card2.container.classList.add('matched')
-            // card1.front.classList.add('view-hidden')
-            // card2.front.classList.add('view-hidden')
-
-            // card1.front.classList.add('view-none')
-            // card2.front.classList.add('view-none')
-            
-            // card1.back.classList.add('view-none')
-            // card2.back.classList.add('view-none')
-
         }else {
 
             
             is_timer_on = true
             setTimeout(() => {  
                 card1.back.classList.remove('flip')
-            card2.back.classList.remove('flip')
-            
-
-            card1.front.classList.remove('matched')
-            card2.front.classList.remove('matched')
-
-            card1.back.classList.remove('matched')
-            card2.back.classList.remove('matched') 
-            card1.back.classList.remove('view-hidden')
-            card2.back.classList.remove('view-hidden')
-            card1.front.classList.add('view-hidden')
-            card2.front.classList.add('view-hidden')
-            is_timer_on = false
+                card2.back.classList.remove('flip') 
+                card1.back.classList.remove('view-hidden')
+                card2.back.classList.remove('view-hidden')
+                // card1.front.classList.add('view-hidden')
+                // card2.front.classList.add('view-hidden')
+                is_timer_on = false
             }, 1000)
         }
         
