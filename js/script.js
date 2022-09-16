@@ -30,8 +30,14 @@ cards.forEach((card) => {
 
         if(card2.isEqualNode(card1)) {
             console.log("We got a match")
-            card1.classList.add('view-hidden')
+            card1.classList.add('view-none')
+            card2.classList.add('view-none')
+
         }
+        card1 = document.createElement('div') //equivalent to null
+        card2 = document.createElement('p') //because isEqualNode gives errpr if card1 or card2 = null
+        flipCard1 = false
+        flipCard2 = true
         console.log("card1", card1)
         console.log("card2", card2)
         
